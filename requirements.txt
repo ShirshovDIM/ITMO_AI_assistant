@@ -1,16 +1,20 @@
-langgraph
-langchain-core
-langchain
-langchain-community
-langchain-openai
-pydantic
-fuzzywuzzy
-beautifulsoup4
-selenium
-playwright
-sqlalchemy
-python-dotenv
-typing_extensions
-pyprojroot
-shutil
-sqlite3
+# Core dependencies
+aiogram==3.4.1
+aiohttp==3.9.1
+beautifulsoup4==4.12.2
+numpy==1.24.3
+faiss-cpu==1.7.4
+sentence-transformers==2.2.2
+anthropic==0.8.1
+transformers==4.36.2
+torch==2.1.2
+
+# Additional dependencies
+python-dotenv==1.0.0
+lxml==4.9.3
+requests==2.31.0
+pandas==2.0.3
+
+# For logging and async
+asyncio==3.4.3
+logging==0.4.9.6
