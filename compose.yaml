@@ -1,24 +1,19 @@
 version: '3.8'
 
 services:
-  itmo-exam:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "7860:7860"
-    volumes:
-      - ./.env:/app/.env:ro
-      - ./data:/app/data
-      - ./configs:/app/configs
-      - ./memory:/app/memory
-    restart: unless-stopped
+  itmo-bot:
+    build: .
+    container_name: itmo-ai-chatbot
     environment:
-      - PYTHONUNBUFFERED=1
-    command: python src/app.py
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
     networks:
-      - itmo-exam-network
+      - bot-network
 
 networks:
-  itmo-exam-network:
+  bot-network:
     driver: bridge
