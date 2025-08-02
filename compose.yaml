@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  itmo-exam:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./data:/app/data
+      - ./configs:/app/configs
+      - ./memory:/app/memory
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python src/app.py
+    networks:
+      - itmo-exam-network
+
+networks:
+  itmo-exam-network:
+    driver: bridge

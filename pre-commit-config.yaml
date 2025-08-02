@@ -1,0 +1,59 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: debug-statements
+
+-   repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+    -   id: black
+
+-   repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.1.8
+    hooks:
+    -   id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+    -   id: isort
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.1
+    hooks:
+    -   id: mypy
+        args: [
+            --explicit-package-bases,
+            --package, src,
+            --ignore-missing-imports,
+            --allow-untyped-decorators,
+            --allow-subclassing-any,
+            --allow-any-generics,
+            --disable-error-code=misc,
+            --disable-error-code=no-untyped-def,
+            --disable-error-code=no-untyped-call,
+            --disable-error-code=no-any-return,
+            --disable-error-code=valid-type,
+            --disable-error-code=operator,
+            --disable-error-code=attr-defined,
+            --disable-error-code=syntax,
+            --disable-error-code=unreachable,
+            --disable-error-code=unused-ignore,
+            --disable-error-code=arg-type,
+            --disable-error-code=import-untyped
+        ]
+        pass_filenames: false
+        additional_dependencies: [
+            types-requests,
+            pydantic,
+            types-PyYAML,
+            sqlalchemy-stubs,
+            types-selenium
+          ]
+        exclude: ^(notebooks/|tests/)

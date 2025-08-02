@@ -1,1 +1,1 @@
-# ITMO_AI_assistant
+# -ITMO---exam
