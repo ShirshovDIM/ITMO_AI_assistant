@@ -42,8 +42,8 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/itmo-ai-chatbot.git
-cd itmo-ai-chatbot
+git clone https://github.com/ShirshovDIM/ITMO_AI_assistant.git
+cd ITMO_AI_assistant
 ```
 
 2. Создайте виртуальное окружение:
@@ -59,9 +59,9 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-4. Создайте файл `.env` на основе `.env.example`:
+4. Создайте файл `.env`:
 ```bash
-cp .env.example .env
+cp .env
 ```
 
 5. Заполните переменные окружения в `.env`:
@@ -70,7 +70,7 @@ cp .env.example .env
 
 6. Запустите бота:
 ```bash
-python telegram_bot.py
+python ./src/app/telegram_bot.py
 ```
 
 ### Запуск через Docker
